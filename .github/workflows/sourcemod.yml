@@ -2,9 +2,9 @@ name: Sourcemod CI
 
 on:
   push:
-    branches: [ "sourcemod" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "sourcemod" ]
+    branches: [ "main" ]
 
   workflow_dispatch:
 
