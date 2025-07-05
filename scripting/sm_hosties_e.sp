@@ -44,8 +44,8 @@
 
 #pragma			semicolon 					1
 
-#define 		PLUGIN_VERSION				"5.1.0"
-#define 		PLUGIN_NAME					"Hosties+"
+#define 		PLUGIN_VERSION				"5.2.0"
+#define 		PLUGIN_NAME					"Hosties++"
 #define 		MAX_DISPLAYNAME_SIZE		64
 #define 		MAX_DATAENTRY_SIZE			5
 #define 		SERVERTAG					"ENT_Hosties,LR,LastRequest,Hosties+"
@@ -53,31 +53,31 @@
 // Note: you cannot safely turn these modules on and off yet. Use cvars to disable functionality.
 
 // Add ability to disable collisions for players
-#define	MODULE_NOBLOCK						1
+#define	MODULE_NOBLOCK						0
 // Add anti-healing check for LRs
 #define	MODULE_ANTIHEAL						1
 // Add the last request system
 #define	MODULE_LASTREQUEST					1
 // Add a game description override
-#define	MODULE_GAMEDESCRIPTION				1
+#define	MODULE_GAMEDESCRIPTION				0
 // Add start weapons for both teams
 #define	MODULE_STARTWEAPONS					1
 // Add round-end team overlays
-#define	MODULE_TEAMOVERLAYS					1
+#define	MODULE_TEAMOVERLAYS					0
 // Add !rules command
-#define	MODULE_RULES						1
+#define	MODULE_RULES						0
 // Add !checkplayers command
-#define	MODULE_CHECKPLAYERS					1
+#define	MODULE_CHECKPLAYERS					0
 // Add muting system
 #define	MODULE_MUTE							1
 // Add freekill detection and prevention
-#define	MODULE_FREEKILL						1
+#define	MODULE_FREEKILL						0
 // Add gun safety
 #define	MODULE_GUNSAFETY					1
 // Add intelli-respawn
 #define	MODULE_RESPAWN						1
 // Fix MyJailbreak value sets
-#define	MODULE_FIXJB						1
+#define	MODULE_FIXJB						0
 
 /******************************************************************************
                    !EDIT BELOW THIS COMMENT AT YOUR OWN PERIL!
@@ -177,10 +177,10 @@ public void OnPluginStart()
 	// Events hooks
 	HookEvent("round_start", Event_RoundStart);
 	
-	EMP_DirExistsEx("cfg/sourcemod/Hosties");
+	EMP_DirExistsEx("cfg/sourcemod/hosties");
 
 	// Create ConVars
-	AutoExecConfig_SetFile("Hosties_Settings", "sourcemod/Hosties");
+	AutoExecConfig_SetFile("hosties", "sourcemod/hosties");
 	AutoExecConfig_SetCreateFile(true);
 	
 	gH_Cvar_Add_ServerTag		= 	AutoExecConfig_CreateConVar("sm_hosties_add_servertag", "1", "Enable or disable automatic adding of SM_Hosties in sv_tags (visible from the server browser in CS:S): 0 - disable, 1 - enable", 0, true, 0.0, true, 1.0);
@@ -224,7 +224,7 @@ public void OnPluginStart()
 	AutoExecConfig_ExecuteFile();
 	AutoExecConfig_CleanFile();
 	
-	AutoExecConfig_SetFile("LastRequest_Settings", "sourcemod/Hosties");
+	AutoExecConfig_SetFile("lastrequest", "sourcemod/hosties");
 	AutoExecConfig_SetCreateFile(true);
 	#if (MODULE_ANTIHEAL == 1)
 	Antiheal_OnPluginStart();
