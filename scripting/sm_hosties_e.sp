@@ -53,7 +53,7 @@
 // Note: you cannot safely turn these modules on and off yet. Use cvars to disable functionality.
 
 // Add ability to disable collisions for players
-#define	MODULE_NOBLOCK						0
+#define	MODULE_NOBLOCK						1
 // Add anti-healing check for LRs
 #define	MODULE_ANTIHEAL						1
 // Add the last request system
